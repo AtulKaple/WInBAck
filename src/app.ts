@@ -10,7 +10,7 @@ const app = express();
 
 app.use(
   cors({
-    origin: ['http://localhost:3000', 'http://localhost:3001'],
+    origin: ['https://winsights-patienthub.sidlabs.net', 'http://localhost:3001'],
     credentials: true,
   })
 );
