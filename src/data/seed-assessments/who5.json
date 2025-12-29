@@ -1,0 +1,24 @@
+{
+  "id": "who5",
+  "title": "WHO-5 Well-Being Index",
+  "description": "A brief index of current mental well-being. Respondents rate each item over the past two weeks on a 6-point scale (0–5). Raw score (0–25) is multiplied by 4 to yield a percentage score (0–100).",
+  "version": "1.0.0",
+  "updatedAt": "2025-12-28",
+  "questions": [
+    { "id": "q1", "text": "I have felt cheerful and in good spirits", "type": "mcq", "options": [ { "id": "5", "label": "All of the time", "value": 5 }, { "id": "4", "label": "Most of the time", "value": 4 }, { "id": "3", "label": "More than half the time", "value": 3 }, { "id": "2", "label": "Less than half the time", "value": 2 }, { "id": "1", "label": "Some of the time", "value": 1 }, { "id": "0", "label": "At no time", "value": 0 } ], "required": true },
+    { "id": "q2", "text": "I have felt calm and relaxed", "type": "mcq", "options": [ { "id": "5", "label": "All of the time", "value": 5 }, { "id": "4", "label": "Most of the time", "value": 4 }, { "id": "3", "label": "More than half the time", "value": 3 }, { "id": "2", "label": "Less than half the time", "value": 2 }, { "id": "1", "label": "Some of the time", "value": 1 }, { "id": "0", "label": "At no time", "value": 0 } ], "required": true },
+    { "id": "q3", "text": "I have felt active and vigorous", "type": "mcq", "options": [ { "id": "5", "label": "All of the time", "value": 5 }, { "id": "4", "label": "Most of the time", "value": 4 }, { "id": "3", "label": "More than half the time", "value": 3 }, { "id": "2", "label": "Less than half the time", "value": 2 }, { "id": "1", "label": "Some of the time", "value": 1 }, { "id": "0", "label": "At no time", "value": 0 } ], "required": true },
+    { "id": "q4", "text": "I woke up feeling fresh and rested", "type": "mcq", "options": [ { "id": "5", "label": "All of the time", "value": 5 }, { "id": "4", "label": "Most of the time", "value": 4 }, { "id": "3", "label": "More than half the time", "value": 3 }, { "id": "2", "label": "Less than half the time", "value": 2 }, { "id": "1", "label": "Some of the time", "value": 1 }, { "id": "0", "label": "At no time", "value": 0 } ], "required": true },
+    { "id": "q5", "text": "My daily life has been filled with things that interest me", "type": "mcq", "options": [ { "id": "5", "label": "All of the time", "value": 5 }, { "id": "4", "label": "Most of the time", "value": 4 }, { "id": "3", "label": "More than half the time", "value": 3 }, { "id": "2", "label": "Less than half the time", "value": 2 }, { "id": "1", "label": "Some of the time", "value": 1 }, { "id": "0", "label": "At no time", "value": 0 } ], "required": true }
+  ],
+  "scoring": {
+    "method": "sum",
+    "rawRange": [0, 25],
+    "percentageRange": [0, 100],
+    "interpretation": [
+      { "min": 0, "max": 12, "label": "Low Well-Being (possible depression)" },
+      { "min": 13, "max": 25, "label": "Normal Well-Being" }
+    ],
+    "note": "Raw score (0-25). Multiply by 4 for final percentage (0-100). Score below 13 (raw) / below 50 (percentage) suggests poor well-being."
+  }
+}

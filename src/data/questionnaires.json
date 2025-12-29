@@ -1,0 +1,586 @@
+[
+  {
+    "resourceType": "Questionnaire",
+    "id": "phq9",
+    "title": "PHQ-9",
+    "status": "active",
+    "item": [
+      {
+        "linkId": "q1",
+        "text": "One",
+        "type": "choice",
+        "answerOption": [
+          {
+            "valueCoding": {
+              "code": "0",
+              "display": "Zero"
+            },
+            "valueInteger": 0
+          }
+        ]
+      }
+    ],
+    "scoring": {
+      "method": "sum",
+      "interpretation": [
+        {
+          "min": 0,
+          "max": 10,
+          "label": "Low"
+        }
+      ]
+    }
+  },
+  {
+    "resourceType": "Questionnaire",
+    "id": "gad7",
+    "title": "Generalized Anxiety Disorder-7 (GAD-7)",
+    "status": "active",
+    "description": "A brief self-report measure for assessing the severity of generalized anxiety disorder symptoms over the last two weeks. Each item is scored 0–3.",
+    "version": "1.0.0",
+    "updatedAt": "2025-12-28",
+    "item": [
+      {
+        "linkId": "q1",
+        "text": "Feeling nervous, anxious, or on edge",
+        "type": "choice",
+        "answerOption": [
+          {
+            "valueCoding": {
+              "code": "0",
+              "display": "Not at all"
+            },
+            "valueInteger": 0
+          },
+          {
+            "valueCoding": {
+              "code": "1",
+              "display": "Several days"
+            },
+            "valueInteger": 1
+          },
+          {
+            "valueCoding": {
+              "code": "2",
+              "display": "More than half the days"
+            },
+            "valueInteger": 2
+          },
+          {
+            "valueCoding": {
+              "code": "3",
+              "display": "Nearly every day"
+            },
+            "valueInteger": 3
+          }
+        ]
+      },
+      {
+        "linkId": "q2",
+        "text": "Not being able to stop or control worrying",
+        "type": "choice",
+        "answerOption": [
+          {
+            "valueCoding": {
+              "code": "0",
+              "display": "Not at all"
+            },
+            "valueInteger": 0
+          },
+          {
+            "valueCoding": {
+              "code": "1",
+              "display": "Several days"
+            },
+            "valueInteger": 1
+          },
+          {
+            "valueCoding": {
+              "code": "2",
+              "display": "More than half the days"
+            },
+            "valueInteger": 2
+          },
+          {
+            "valueCoding": {
+              "code": "3",
+              "display": "Nearly every day"
+            },
+            "valueInteger": 3
+          }
+        ]
+      },
+      {
+        "linkId": "q3",
+        "text": "Worrying too much about different things",
+        "type": "choice",
+        "answerOption": [
+          {
+            "valueCoding": {
+              "code": "0",
+              "display": "Not at all"
+            },
+            "valueInteger": 0
+          },
+          {
+            "valueCoding": {
+              "code": "1",
+              "display": "Several days"
+            },
+            "valueInteger": 1
+          },
+          {
+            "valueCoding": {
+              "code": "2",
+              "display": "More than half the days"
+            },
+            "valueInteger": 2
+          },
+          {
+            "valueCoding": {
+              "code": "3",
+              "display": "Nearly every day"
+            },
+            "valueInteger": 3
+          }
+        ]
+      },
+      {
+        "linkId": "q4",
+        "text": "Trouble relaxing",
+        "type": "choice",
+        "answerOption": [
+          {
+            "valueCoding": {
+              "code": "0",
+              "display": "Not at all"
+            },
+            "valueInteger": 0
+          },
+          {
+            "valueCoding": {
+              "code": "1",
+              "display": "Several days"
+            },
+            "valueInteger": 1
+          },
+          {
+            "valueCoding": {
+              "code": "2",
+              "display": "More than half the days"
+            },
+            "valueInteger": 2
+          },
+          {
+            "valueCoding": {
+              "code": "3",
+              "display": "Nearly every day"
+            },
+            "valueInteger": 3
+          }
+        ]
+      },
+      {
+        "linkId": "q5",
+        "text": "Being so restless that it is hard to sit still",
+        "type": "choice",
+        "answerOption": [
+          {
+            "valueCoding": {
+              "code": "0",
+              "display": "Not at all"
+            },
+            "valueInteger": 0
+          },
+          {
+            "valueCoding": {
+              "code": "1",
+              "display": "Several days"
+            },
+            "valueInteger": 1
+          },
+          {
+            "valueCoding": {
+              "code": "2",
+              "display": "More than half the days"
+            },
+            "valueInteger": 2
+          },
+          {
+            "valueCoding": {
+              "code": "3",
+              "display": "Nearly every day"
+            },
+            "valueInteger": 3
+          }
+        ]
+      },
+      {
+        "linkId": "q6",
+        "text": "Becoming easily annoyed or irritable",
+        "type": "choice",
+        "answerOption": [
+          {
+            "valueCoding": {
+              "code": "0",
+              "display": "Not at all"
+            },
+            "valueInteger": 0
+          },
+          {
+            "valueCoding": {
+              "code": "1",
+              "display": "Several days"
+            },
+            "valueInteger": 1
+          },
+          {
+            "valueCoding": {
+              "code": "2",
+              "display": "More than half the days"
+            },
+            "valueInteger": 2
+          },
+          {
+            "valueCoding": {
+              "code": "3",
+              "display": "Nearly every day"
+            },
+            "valueInteger": 3
+          }
+        ]
+      },
+      {
+        "linkId": "q7",
+        "text": "Feeling afraid as if something awful might happen",
+        "type": "choice",
+        "answerOption": [
+          {
+            "valueCoding": {
+              "code": "0",
+              "display": "Not at all"
+            },
+            "valueInteger": 0
+          },
+          {
+            "valueCoding": {
+              "code": "1",
+              "display": "Several days"
+            },
+            "valueInteger": 1
+          },
+          {
+            "valueCoding": {
+              "code": "2",
+              "display": "More than half the days"
+            },
+            "valueInteger": 2
+          },
+          {
+            "valueCoding": {
+              "code": "3",
+              "display": "Nearly every day"
+            },
+            "valueInteger": 3
+          }
+        ]
+      }
+    ],
+    "scoring": {
+      "method": "sum",
+      "interpretation": [
+        {
+          "min": 0,
+          "max": 4,
+          "label": "Minimal Anxiety"
+        },
+        {
+          "min": 5,
+          "max": 9,
+          "label": "Mild Anxiety"
+        },
+        {
+          "min": 10,
+          "max": 14,
+          "label": "Moderate Anxiety"
+        },
+        {
+          "min": 15,
+          "max": 21,
+          "label": "Severe Anxiety"
+        }
+      ]
+    }
+  },
+  {
+    "resourceType": "Questionnaire",
+    "id": "who5",
+    "title": "WHO-5 Well-Being Index",
+    "status": "active",
+    "description": "A brief index of current mental well-being. Respondents rate each item over the past two weeks on a 6-point scale (0–5). Raw score (0–25) is multiplied by 4 to yield a percentage score (0–100).",
+    "version": "1.0.0",
+    "updatedAt": "2025-12-28",
+    "item": [
+      {
+        "linkId": "q1",
+        "text": "I have felt cheerful and in good spirits",
+        "type": "choice",
+        "answerOption": [
+          {
+            "valueCoding": {
+              "code": "5",
+              "display": "All of the time"
+            },
+            "valueInteger": 5
+          },
+          {
+            "valueCoding": {
+              "code": "4",
+              "display": "Most of the time"
+            },
+            "valueInteger": 4
+          },
+          {
+            "valueCoding": {
+              "code": "3",
+              "display": "More than half the time"
+            },
+            "valueInteger": 3
+          },
+          {
+            "valueCoding": {
+              "code": "2",
+              "display": "Less than half the time"
+            },
+            "valueInteger": 2
+          },
+          {
+            "valueCoding": {
+              "code": "1",
+              "display": "Some of the time"
+            },
+            "valueInteger": 1
+          },
+          {
+            "valueCoding": {
+              "code": "0",
+              "display": "At no time"
+            },
+            "valueInteger": 0
+          }
+        ]
+      },
+      {
+        "linkId": "q2",
+        "text": "I have felt calm and relaxed",
+        "type": "choice",
+        "answerOption": [
+          {
+            "valueCoding": {
+              "code": "5",
+              "display": "All of the time"
+            },
+            "valueInteger": 5
+          },
+          {
+            "valueCoding": {
+              "code": "4",
+              "display": "Most of the time"
+            },
+            "valueInteger": 4
+          },
+          {
+            "valueCoding": {
+              "code": "3",
+              "display": "More than half the time"
+            },
+            "valueInteger": 3
+          },
+          {
+            "valueCoding": {
+              "code": "2",
+              "display": "Less than half the time"
+            },
+            "valueInteger": 2
+          },
+          {
+            "valueCoding": {
+              "code": "1",
+              "display": "Some of the time"
+            },
+            "valueInteger": 1
+          },
+          {
+            "valueCoding": {
+              "code": "0",
+              "display": "At no time"
+            },
+            "valueInteger": 0
+          }
+        ]
+      },
+      {
+        "linkId": "q3",
+        "text": "I have felt active and vigorous",
+        "type": "choice",
+        "answerOption": [
+          {
+            "valueCoding": {
+              "code": "5",
+              "display": "All of the time"
+            },
+            "valueInteger": 5
+          },
+          {
+            "valueCoding": {
+              "code": "4",
+              "display": "Most of the time"
+            },
+            "valueInteger": 4
+          },
+          {
+            "valueCoding": {
+              "code": "3",
+              "display": "More than half the time"
+            },
+            "valueInteger": 3
+          },
+          {
+            "valueCoding": {
+              "code": "2",
+              "display": "Less than half the time"
+            },
+            "valueInteger": 2
+          },
+          {
+            "valueCoding": {
+              "code": "1",
+              "display": "Some of the time"
+            },
+            "valueInteger": 1
+          },
+          {
+            "valueCoding": {
+              "code": "0",
+              "display": "At no time"
+            },
+            "valueInteger": 0
+          }
+        ]
+      },
+      {
+        "linkId": "q4",
+        "text": "I woke up feeling fresh and rested",
+        "type": "choice",
+        "answerOption": [
+          {
+            "valueCoding": {
+              "code": "5",
+              "display": "All of the time"
+            },
+            "valueInteger": 5
+          },
+          {
+            "valueCoding": {
+              "code": "4",
+              "display": "Most of the time"
+            },
+            "valueInteger": 4
+          },
+          {
+            "valueCoding": {
+              "code": "3",
+              "display": "More than half the time"
+            },
+            "valueInteger": 3
+          },
+          {
+            "valueCoding": {
+              "code": "2",
+              "display": "Less than half the time"
+            },
+            "valueInteger": 2
+          },
+          {
+            "valueCoding": {
+              "code": "1",
+              "display": "Some of the time"
+            },
+            "valueInteger": 1
+          },
+          {
+            "valueCoding": {
+              "code": "0",
+              "display": "At no time"
+            },
+            "valueInteger": 0
+          }
+        ]
+      },
+      {
+        "linkId": "q5",
+        "text": "My daily life has been filled with things that interest me",
+        "type": "choice",
+        "answerOption": [
+          {
+            "valueCoding": {
+              "code": "5",
+              "display": "All of the time"
+            },
+            "valueInteger": 5
+          },
+          {
+            "valueCoding": {
+              "code": "4",
+              "display": "Most of the time"
+            },
+            "valueInteger": 4
+          },
+          {
+            "valueCoding": {
+              "code": "3",
+              "display": "More than half the time"
+            },
+            "valueInteger": 3
+          },
+          {
+            "valueCoding": {
+              "code": "2",
+              "display": "Less than half the time"
+            },
+            "valueInteger": 2
+          },
+          {
+            "valueCoding": {
+              "code": "1",
+              "display": "Some of the time"
+            },
+            "valueInteger": 1
+          },
+          {
+            "valueCoding": {
+              "code": "0",
+              "display": "At no time"
+            },
+            "valueInteger": 0
+          }
+        ]
+      }
+    ],
+    "scoring": {
+      "method": "sum",
+      "interpretation": [
+        {
+          "min": 0,
+          "max": 12,
+          "label": "Low Well-Being (possible depression)"
+        },
+        {
+          "min": 13,
+          "max": 25,
+          "label": "Normal Well-Being"
+        }
+      ]
+    }
+  }
+]

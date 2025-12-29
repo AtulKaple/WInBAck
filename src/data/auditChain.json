@@ -1,0 +1,13 @@
+[
+  {
+    "ts": "1",
+    "action": "a",
+    "actorUserId": "u",
+    "actorRole": "patient",
+    "resourceType": "Consent",
+    "resourceId": "1",
+    "hash": "h1",
+    "prevHash": "",
+    "ciphertext": "x"
+  }
+]

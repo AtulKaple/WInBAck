@@ -1,0 +1,25 @@
+{
+  "id": "gad7",
+  "title": "Generalized Anxiety Disorder-7 (GAD-7)",
+  "description": "A brief self-report measure for assessing the severity of generalized anxiety disorder symptoms over the last two weeks. Each item is scored 0–3.",
+  "version": "1.0.0",
+  "updatedAt": "2025-12-28",
+  "questions": [
+    { "id": "q1", "text": "Feeling nervous, anxious, or on edge", "type": "mcq", "options": [ { "id": "0", "label": "Not at all", "value": 0 }, { "id": "1", "label": "Several days", "value": 1 }, { "id": "2", "label": "More than half the days", "value": 2 }, { "id": "3", "label": "Nearly every day", "value": 3 } ], "required": true },
+    { "id": "q2", "text": "Not being able to stop or control worrying", "type": "mcq", "options": [ { "id": "0", "label": "Not at all", "value": 0 }, { "id": "1", "label": "Several days", "value": 1 }, { "id": "2", "label": "More than half the days", "value": 2 }, { "id": "3", "label": "Nearly every day", "value": 3 } ], "required": true },
+    { "id": "q3", "text": "Worrying too much about different things", "type": "mcq", "options": [ { "id": "0", "label": "Not at all", "value": 0 }, { "id": "1", "label": "Several days", "value": 1 }, { "id": "2", "label": "More than half the days", "value": 2 }, { "id": "3", "label": "Nearly every day", "value": 3 } ], "required": true },
+    { "id": "q4", "text": "Trouble relaxing", "type": "mcq", "options": [ { "id": "0", "label": "Not at all", "value": 0 }, { "id": "1", "label": "Several days", "value": 1 }, { "id": "2", "label": "More than half the days", "value": 2 }, { "id": "3", "label": "Nearly every day", "value": 3 } ], "required": true },
+    { "id": "q5", "text": "Being so restless that it is hard to sit still", "type": "mcq", "options": [ { "id": "0", "label": "Not at all", "value": 0 }, { "id": "1", "label": "Several days", "value": 1 }, { "id": "2", "label": "More than half the days", "value": 2 }, { "id": "3", "label": "Nearly every day", "value": 3 } ], "required": true },
+    { "id": "q6", "text": "Becoming easily annoyed or irritable", "type": "mcq", "options": [ { "id": "0", "label": "Not at all", "value": 0 }, { "id": "1", "label": "Several days", "value": 1 }, { "id": "2", "label": "More than half the days", "value": 2 }, { "id": "3", "label": "Nearly every day", "value": 3 } ], "required": true },
+    { "id": "q7", "text": "Feeling afraid as if something awful might happen", "type": "mcq", "options": [ { "id": "0", "label": "Not at all", "value": 0 }, { "id": "1", "label": "Several days", "value": 1 }, { "id": "2", "label": "More than half the days", "value": 2 }, { "id": "3", "label": "Nearly every day", "value": 3 } ], "required": true }
+  ],
+  "scoring": {
+    "method": "sum",
+    "interpretation": [
+      { "min": 0, "max": 4, "label": "Minimal Anxiety" },
+      { "min": 5, "max": 9, "label": "Mild Anxiety" },
+      { "min": 10, "max": 14, "label": "Moderate Anxiety" },
+      { "min": 15, "max": 21, "label": "Severe Anxiety" }
+    ]
+  }
+}

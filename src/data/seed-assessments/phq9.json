@@ -1,0 +1,28 @@
+{
+  "id": "phq9",
+  "title": "Patient Health Questionnaire-9 (PHQ-9)",
+  "description": "A brief self-report tool for assessing depressive symptom severity over the last two weeks. Each item is scored 0–3.",
+  "version": "1.0.0",
+  "updatedAt": "2025-12-28",
+  "questions": [
+    { "id": "q1", "text": "Little interest or pleasure in doing things", "type": "mcq", "options": [ { "id": "0", "label": "Not at all", "value": 0 }, { "id": "1", "label": "Several days", "value": 1 }, { "id": "2", "label": "More than half the days", "value": 2 }, { "id": "3", "label": "Nearly every day", "value": 3 } ], "required": true },
+    { "id": "q2", "text": "Feeling down, depressed, or hopeless", "type": "mcq", "options": [ { "id": "0", "label": "Not at all", "value": 0 }, { "id": "1", "label": "Several days", "value": 1 }, { "id": "2", "label": "More than half the days", "value": 2 }, { "id": "3", "label": "Nearly every day", "value": 3 } ], "required": true },
+    { "id": "q3", "text": "Trouble falling or staying asleep, or sleeping too much", "type": "mcq", "options": [ { "id": "0", "label": "Not at all", "value": 0 }, { "id": "1", "label": "Several days", "value": 1 }, { "id": "2", "label": "More than half the days", "value": 2 }, { "id": "3", "label": "Nearly every day", "value": 3 } ], "required": true },
+    { "id": "q4", "text": "Feeling tired or having little energy", "type": "mcq", "options": [ { "id": "0", "label": "Not at all", "value": 0 }, { "id": "1", "label": "Several days", "value": 1 }, { "id": "2", "label": "More than half the days", "value": 2 }, { "id": "3", "label": "Nearly every day", "value": 3 } ], "required": true },
+    { "id": "q5", "text": "Poor appetite or overeating", "type": "mcq", "options": [ { "id": "0", "label": "Not at all", "value": 0 }, { "id": "1", "label": "Several days", "value": 1 }, { "id": "2", "label": "More than half the days", "value": 2 }, { "id": "3", "label": "Nearly every day", "value": 3 } ], "required": true },
+    { "id": "q6", "text": "Feeling bad about yourself — or that you are a failure or have let yourself or your family down", "type": "mcq", "options": [ { "id": "0", "label": "Not at all", "value": 0 }, { "id": "1", "label": "Several days", "value": 1 }, { "id": "2", "label": "More than half the days", "value": 2 }, { "id": "3", "label": "Nearly every day", "value": 3 } ], "required": true },
+    { "id": "q7", "text": "Trouble concentrating on things, such as reading the newspaper or watching television", "type": "mcq", "options": [ { "id": "0", "label": "Not at all", "value": 0 }, { "id": "1", "label": "Several days", "value": 1 }, { "id": "2", "label": "More than half the days", "value": 2 }, { "id": "3", "label": "Nearly every day", "value": 3 } ], "required": true },
+    { "id": "q8", "text": "Moving or speaking so slowly that other people could have noticed? Or being so fidgety or restless that you have been moving around a lot more than usual", "type": "mcq", "options": [ { "id": "0", "label": "Not at all", "value": 0 }, { "id": "1", "label": "Several days", "value": 1 }, { "id": "2", "label": "More than half the days", "value": 2 }, { "id": "3", "label": "Nearly every day", "value": 3 } ], "required": true },
+    { "id": "q9", "text": "Thoughts that you would be better off dead or of hurting yourself in some way", "type": "mcq", "options": [ { "id": "0", "label": "Not at all", "value": 0 }, { "id": "1", "label": "Several days", "value": 1 }, { "id": "2", "label": "More than half the days", "value": 2 }, { "id": "3", "label": "Nearly every day", "value": 3 } ], "required": true }
+  ],
+  "scoring": {
+    "method": "sum",
+    "interpretation": [
+      { "min": 0, "max": 4, "label": "None–Minimal" },
+      { "min": 5, "max": 9, "label": "Mild" },
+      { "min": 10, "max": 14, "label": "Moderate" },
+      { "min": 15, "max": 19, "label": "Moderately Severe" },
+      { "min": 20, "max": 27, "label": "Severe" }
+    ]
+  }
+}

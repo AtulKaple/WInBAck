@@ -1,0 +1,30 @@
+[
+  {
+    "id": "phq9-test-patient-1-1766939110624",
+    "ciphertext": "3jtiWLbCOypMcdQSZNqrxSO3zbKaF9Ea9+87nrzEa62lerKq/TxfraFLcDqF1idfI3dXcC2Lh8aH7peEO2/mJA2AkdhMPJTe5YsqN/2d8NupazzPOeXDu6lv6bdB9DVvgl66zkoFPV96G9jApkEoyjY2hP2+GWvTY6ZmDRrkdTvPX2z33InYmDJouUMF06htHlm7+bRR6RQHRL1VB8Kvme9Y1wcW+EfymEA9q58KNH1ONLs6thT98Qe3pAsVXDEvngEdrsWjv1LjqwwEEaOqRPcjZ/jaBbOjQfj747GyxTXysHACtDzJgbC526xaQu/L7cgQ2Xl5xj8Wpvfj/ULTPLos67xGG5eEuGoW1919paAn/mgXJ/vv0GL6dKEub9XNBwpyW++fU86xPnaL9dUPSz8sZsDYlzKDVnDOoIxV/dWcaHVtHgV96SZKy/PfOSJDs4qrz1gXE09QkS+iuQdfxG62LAp/iepzglhTXpZ1OTFiVv5nGF2dxQNV4a71dQrGNLaODGBvCIYHXnnKkjroy0gPpS/YJvFMPPxAjdPRS1Rgcidh9mG4uA7P5RC/9PGT9RAVX77tq4IGcYO9s3cbEVnZhi+2ABxfatVE4bvt8JU+MUFv8+5YQElursVyaYRMwqUPDmLjMWeecgARUCbuFjztNzXNymKYAyk7E/uuepxd3M6hpUqWW0UulHxX8cp5VKijnm1DAApb71Du3Hv0hRHXlSPYU4F0mFJaJxRCDTwzqoqp/EBTVkOF9CIR5WrrMdWLC2T/+KO5Zekm6BdXcGJXesLJ6jymb4jpq76K9HUHzBkTn7pQc2LY9baWf2/4yDyxudW8Aie791kjM1MW78NQwG4owCbg+mo9L/ymMzmZeFV4BT/A2L9B1221ftiooDgf1nCpfQRWenYHlQ8WH7u9WXOcmHGaj3wsd6l/8WfzPeML/QC8HPk+UAIugWf1Rdao7oyfokMjQqNkH+E9qJCv53d8MflhzgL5HCWCg78XOD5zByRusaSXjuY1XLzBouisRD538pk8es4Q8ZY/In2gVRfhwq+cGPz9+7mNvvgdg2QggqarbNMneMvxJ/evaSOJo2F2F1qAmasNCxEcZvmi+v6BQF/aeMfm6WYD+99u6V2V6fz7qkFnO3ZyidhOYh5U+MEn+AEWuOniL5iEtl40R+PAJZH5tGwbmpa7vLdMJq6NnQpqDzDWSrwYDu/rACPwLfmi6eRXZMY3E/EC6rSa1UoJFvyd1iTq29QkFi3s6EPCzh5xY3ingsqrgKYQB8baKs9NJ6RsBGDkYb6kL3fXAs82XAl5nmTxJT3ciZlG2l0aqFZCycyUWT6rvHq1aWTnzrv0",
+    "iv": "tl5B0rTCmQqog9dr",
+    "tag": "H+xcy/9T7vR7VuhLZOCRFg==",
+    "createdAt": "2025-12-28T16:25:10.625Z",
+    "meta": {
+      "action": "assessmentResponse.write",
+      "actorUserId": "test-patient-1",
+      "actorRole": "patient",
+      "resourceType": "AssessmentResponse",
+      "resourceId": "phq9-test-patient-1-1766939110624"
+    }
+  },
+  {
+    "id": "phq9-test-patient-1-1766939110635",
+    "ciphertext": "m55s+9JFg5mfPw6nxKhc99aDWObXNj8xTI+26m5vIuun+UIr/WNQc31mbfPahz99uMoG9U3ZOCBhSVu5LJcB8nK5Jy+bFEBqK5f1swMNegZd3ftUrnby9NL6TcF6S4wOGjEk7WHdb3dSQ6BQSGSf/VWJihqs2TBC2ADlomJCvr0mU7I2ij7uyTIhhAtoVTBsq2HBGRGO/XtqIXErx/iDXfCAN2+6fAJG+3mzL5DorqtsfzMH5/ySFSGk1hZ41/gF2G1heviUZm8glENhmFOauQtt7bE934Z4sfKfY+xgRFIEU2qLyuvrIiWt/TbWlVnSRJf6MMzYDM39fifyBB5l3e3gHvWMkbaXkz0J6LMre3V84qjloAvPvMzzU3J/sa+/PMArGTsdbs0Ctv+0zGrDqYIR3zBEH7DdEh2ccZ+jKdrXkWj84MlIOrIcKX87mF1VZO5T6clmJcR1hxuFVRwChQz7FK+0CAiTj2/BPHfXKSugP5XtWf2PWhtGEBZGSWUKwMYqMKL8+186EGn5BrbeRmfyssc7sOwyIWKCeMoTkzy9Rv08lPthFGRjsa/eDevMpQpMvj4Cexmu5E9SToBREH9NhM5Vzp4AokdtxwC/TIjo2IidnDb54Fr3kxbCS3g1HXqbxXh4nXBUNG9pxWT0aETl9hD8yZcO3NUCeE2qqpYVVwTm7qjiwWJyvaxuWzFBF+wAhcX9K2iq9RiSD39Ywvis0RevtRxV1ICbQvV/FJkztjv0nl4S38uGDQzqMAdTNy+HF6Kvuu+FvTjU5CFhHsRzUpQ3BlDRoRQ1+VGicedKys3b+hw5fM2hy4WmTxdhXcQ1ClrnK3aMdb5zqzQ1hHr61H4rgARw3LwxhnOqunsABltBUduavUGvHlFFBEoca/Dm/0sDOOJj0QTk9G74VgA9RyHvxZq2y0C/Ad81lL9bxevSbIJGIAAxbkYNaRSkf1gjmn6hybD8KykiyflBs5tCTF3RP8Xd9LahaIkB4h2/PSw6s9/auqnHlvN0kr5FbLvU8A3Be14GSMNTZzlkMNR1h8HcrLcTmqKJnMiSO36lAu9JylYUB/s47O4sQFYe5x7aQ8dcT3V39F7tX/ywHkXrEyqJzSqXH3z7htTZGidd/ffDDkvNHhw2aPUwkPN6Acf1y5ERaBEZGQJKuJXtZrOYMXmSGtDOtC0CiyHSFVqDiuFdED1JJDuES9Obx0QUvuJdF9cXZq/RcGHC7ZQ1zdKQdqYNA3O5JtbgaWQhLVdLzAMXidFUOeFHKJkh5+HYagCZjvOjlH27wxeKX2JnzlLRZMdXo4zalISaBvSBaYSXe4v8b1z8yaKjQyEshYPYtw29Pkxe",
+    "iv": "Sq09jB12xcBQrs/Y",
+    "tag": "r7lIWQlWE82m7kumJGum7A==",
+    "createdAt": "2025-12-28T16:25:10.635Z",
+    "meta": {
+      "action": "assessmentResponse.write",
+      "actorUserId": "test-patient-1",
+      "actorRole": "patient",
+      "resourceType": "AssessmentResponse",
+      "resourceId": "phq9-test-patient-1-1766939110635"
+    }
+  }
+]

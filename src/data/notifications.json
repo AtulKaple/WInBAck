@@ -1,0 +1,170 @@
+[
+  {
+    "id": "notif_1766936456771_1vt1",
+    "userId": "test-patient-1",
+    "type": "CONSENT_REQUIRED",
+    "message": "Action needed: Please review consent.",
+    "ctaUrl": "/patient/consent",
+    "severity": "warning",
+    "createdAt": "2025-12-28T15:40:56.771Z",
+    "readAt": null,
+    "source": "patienthub",
+    "metadata": {
+      "module": "consent"
+    }
+  },
+  {
+    "id": "notif_1766937618638_ndvd",
+    "userId": "test-patient-1",
+    "type": "ASSESSMENT_COMPLETED",
+    "message": "Assessment completed.",
+    "ctaUrl": "/patient/dashboard",
+    "severity": "info",
+    "createdAt": "2025-12-28T16:00:18.638Z",
+    "readAt": null,
+    "source": "patienthub",
+    "metadata": {
+      "module": "assessments"
+    }
+  },
+  {
+    "id": "notif_1766938513377_hvpw",
+    "userId": "test-patient-1",
+    "type": "ASSESSMENT_COMPLETED",
+    "message": "Assessment completed.",
+    "ctaUrl": "/patient/dashboard",
+    "severity": "info",
+    "createdAt": "2025-12-28T16:15:13.377Z",
+    "readAt": null,
+    "source": "patienthub",
+    "metadata": {
+      "module": "assessments"
+    }
+  },
+  {
+    "id": "notif_1766938552673_kra0",
+    "userId": "test-patient-1",
+    "type": "ASSESSMENT_COMPLETED",
+    "message": "Assessment completed.",
+    "ctaUrl": "/patient/dashboard",
+    "severity": "info",
+    "createdAt": "2025-12-28T16:15:52.673Z",
+    "readAt": null,
+    "source": "patienthub",
+    "metadata": {
+      "module": "assessments"
+    }
+  },
+  {
+    "id": "notif_1766938552676_esch",
+    "userId": "test-patient-1",
+    "type": "ASSESSMENT_COMPLETED",
+    "message": "Assessment completed.",
+    "ctaUrl": "/patient/dashboard",
+    "severity": "info",
+    "createdAt": "2025-12-28T16:15:52.676Z",
+    "readAt": null,
+    "source": "patienthub",
+    "metadata": {
+      "module": "assessments"
+    }
+  },
+  {
+    "id": "notif_1766938598044_bfk7",
+    "userId": "test-patient-1",
+    "type": "ASSESSMENT_COMPLETED",
+    "message": "Assessment completed.",
+    "ctaUrl": "/patient/dashboard",
+    "severity": "info",
+    "createdAt": "2025-12-28T16:16:38.044Z",
+    "readAt": null,
+    "source": "patienthub",
+    "metadata": {
+      "module": "assessments"
+    }
+  },
+  {
+    "id": "notif_1766938598046_l6lw",
+    "userId": "test-patient-1",
+    "type": "ASSESSMENT_COMPLETED",
+    "message": "Assessment completed.",
+    "ctaUrl": "/patient/dashboard",
+    "severity": "info",
+    "createdAt": "2025-12-28T16:16:38.046Z",
+    "readAt": null,
+    "source": "patienthub",
+    "metadata": {
+      "module": "assessments"
+    }
+  },
+  {
+    "id": "notif_1766938909726_g94w",
+    "userId": "test-patient-1",
+    "type": "ASSESSMENT_COMPLETED",
+    "message": "Assessment completed.",
+    "ctaUrl": "/patient/dashboard",
+    "severity": "info",
+    "createdAt": "2025-12-28T16:21:49.726Z",
+    "readAt": null,
+    "source": "patienthub",
+    "metadata": {
+      "module": "assessments"
+    }
+  },
+  {
+    "id": "notif_1766938909728_mool",
+    "userId": "test-patient-1",
+    "type": "ASSESSMENT_COMPLETED",
+    "message": "Assessment completed.",
+    "ctaUrl": "/patient/dashboard",
+    "severity": "info",
+    "createdAt": "2025-12-28T16:21:49.728Z",
+    "readAt": null,
+    "source": "patienthub",
+    "metadata": {
+      "module": "assessments"
+    }
+  },
+  {
+    "id": "notif_1766939058826_02mh",
+    "userId": "test-patient-1",
+    "type": "ASSESSMENT_COMPLETED",
+    "message": "Assessment completed.",
+    "ctaUrl": "/patient/dashboard",
+    "severity": "info",
+    "createdAt": "2025-12-28T16:24:18.826Z",
+    "readAt": null,
+    "source": "patienthub",
+    "metadata": {
+      "module": "assessments"
+    }
+  },
+  {
+    "id": "notif_1766939110628_39xa",
+    "userId": "test-patient-1",
+    "type": "ASSESSMENT_COMPLETED",
+    "message": "Assessment completed.",
+    "ctaUrl": "/patient/dashboard",
+    "severity": "info",
+    "createdAt": "2025-12-28T16:25:10.628Z",
+    "readAt": null,
+    "source": "patienthub",
+    "metadata": {
+      "module": "assessments"
+    }
+  },
+  {
+    "id": "notif_1766939110637_l30i",
+    "userId": "test-patient-1",
+    "type": "ASSESSMENT_COMPLETED",
+    "message": "Assessment completed.",
+    "ctaUrl": "/patient/dashboard",
+    "severity": "info",
+    "createdAt": "2025-12-28T16:25:10.637Z",
+    "readAt": null,
+    "source": "patienthub",
+    "metadata": {
+      "module": "assessments"
+    }
+  }
+]

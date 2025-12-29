@@ -1,0 +1,72 @@
+[
+  {
+    "id": "consent-test",
+    "ciphertext": "yolGsGkDqjYHzTRqE7FbjMBmnyeUNfFDWtuY8hCdrf5PVrAa7dXViG0pzl6LMOjF5a42EP55F1bw0ztxfuq4MPlzul1c5a3WoixeX5DADQNpvjDBv3jn2LS+rxIbIJ4H8LOsKYFk0cLCtMH+Y5JZUzhj8rUNbO7OunGaL8TpV4q2jYVbSgS7s4hB1Yp9NIQg7JM1r4OqfNmxp548agq4q6eLBM8tsdP6cb2ES2JKdfvtaYtaeTaD8h8/k/c9jfDNZKuMe3E5qX1VGBlbQw==",
+    "iv": "gqbl8D0yZmpStodG",
+    "tag": "TAL6izr5XD44sqhAlYqHCA==",
+    "createdAt": "2025-12-28T16:25:10.617Z",
+    "meta": {
+      "action": "consent.write",
+      "actorUserId": "test-patient-1",
+      "actorRole": "patient",
+      "resourceType": "Consent",
+      "resourceId": "consent-test"
+    }
+  },
+  {
+    "id": "consent-test-2",
+    "ciphertext": "BxvUScgndVs+M/JbjumYZHMsSnP5jKzhN/Tch/pB5scW9usV3tpoE+JBj0fivvJqrWh+S4SZtBKNQ8Uo5twfIYVGg7+viAPG2JAZEV5jjzWI7OYzvCHMdGjRYoHg9nyVUwycywQuj1bzz7zzflI3Zgia8YtV34o9Yg86JAfrJc7moA2qodIgpqJewjTQ6FMpPzZRsx1as9cnOomz6ehKLytu4jwUJJ4MbnA6sDSj9PTx3KWjkbf8besR+NUo/QTQ7z3RXnmaBVQzWovcNhh1",
+    "iv": "NgYWA3NE3/riOv1L",
+    "tag": "aA8p/hZay8fgNheOYpZRJQ==",
+    "createdAt": "2025-12-28T16:25:10.630Z",
+    "meta": {
+      "action": "consent.write",
+      "actorUserId": "test-patient-1",
+      "actorRole": "patient",
+      "resourceType": "Consent",
+      "resourceId": "consent-test-2"
+    }
+  },
+  {
+    "id": "consent-test-patient-1",
+    "ciphertext": "t/2c1OBQ7qkYRgHskfXbT0lkOLeSXOkvO/CxIqgyblcxLYk2SMsWHa18aRbcCDcIl03msfX9+RVfQuiOrx4HxIIrWB8Nh/jA6uKC13n2bBsq4KWzPbSlfYU4fCTjao5QPAVUg/sC/ah0noOFGwhRkPe5vhUbDmmzSf/frAyHJUnJ980nHWt6n3c1r/uRUniPGpoiiLZplMTkn3ByqymXUZb4bRQ2bthc1P9QYA/h9cYEMpVqppHe+6GFrBbBzFtndqEPRw90Gs/5JTPpND/p+TQcuRDj60XbUw==",
+    "iv": "VwYxK43NQwMCr6Sg",
+    "tag": "eObhwWQHZGf85Hd8Mbdwbw==",
+    "createdAt": "2025-12-28T16:25:58.919Z",
+    "meta": {
+      "action": "consent.write",
+      "actorUserId": "test-patient-1",
+      "actorRole": "patient",
+      "resourceType": "Consent",
+      "resourceId": "consent-test-patient-1"
+    }
+  },
+  {
+    "id": "consent-1766939158955",
+    "ciphertext": "bENmWDpIwozsZ3LFw1IPBZCNeisWR7vpaPrtL8qhrPBKx3EjKv+2t90masPvh5I2ckSFjGq5Y4Px9KF81MUScYfU5whkOZX0wLZEIKCur5Hsi6mcSCHUgTtSJYfr3G3HX8bcjnwiuANEwnYmLxiP5WZ3tR1PML2dxzmcarudQFUGqOLKqjXNAQyUs0nKjU/jGGMp27l91YXWkL338BWkj6t7Bh60L5AeRNMPPg+L3tIRYnL48udr7rhwY5JJ1d+CH7LRI7KUg6AzEWfHNKEFfMMe/+IfnozbbdTlq3et",
+    "iv": "myKqYcJVZ25mKQig",
+    "tag": "uvGtg9gk1v/BxJrmCRir9w==",
+    "createdAt": "2025-12-28T16:25:58.974Z",
+    "meta": {
+      "action": "consent.write",
+      "actorUserId": "test-patient-1",
+      "actorRole": "patient",
+      "resourceType": "Consent",
+      "resourceId": "consent-1766939158955"
+    }
+  },
+  {
+    "id": "consent-test-patient-1",
+    "ciphertext": "c4wF3do05NlVRkppp641LnTJE5PxOhATjfzCBXG5So294tTmn79T6OMOvooTMJrVYXKG6+Ygm9TWRaYjOkHipo+4n+HmkEf0eiPEyC17APXv9qhklbHgyeJjau1rAkaMOzBtJeb3qYRUffasRHvJaReVBQqXO0eWjh8W5gzd9ilY3vP3vHBNR+SPhZEup10Kwvvxc+sJF1H9YdsbKduHegxvVp3HD9jlnAch7iNB+S7KDuu0/4ecyvdbSt0V0waszIxINbenGtlkXN90bavXZvl0f5s+FGefrA==",
+    "iv": "t0HmJYD54sHkWU5r",
+    "tag": "84eIN/6ZTe86a8QEmxxK5w==",
+    "createdAt": "2025-12-28T16:48:32.726Z",
+    "meta": {
+      "action": "consent.write",
+      "actorUserId": "test-patient-1",
+      "actorRole": "patient",
+      "resourceType": "Consent",
+      "resourceId": "consent-test-patient-1"
+    }
+  }
+]
