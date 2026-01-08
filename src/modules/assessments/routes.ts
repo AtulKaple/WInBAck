@@ -9,7 +9,7 @@ import { requireRole } from '../../middleware/auth';
 import { requireAuthContext } from '../../auth';
 import { questionnaireSchema, FhirQuestionnaire, FhirQuestionnaireResponse } from './schema';
 import { AnswerMap, scoreQuestionnaire, ScoringError } from './scoring';
-import { requireActiveConsent } from '../consent';
+import { requireActiveConsent } from '../consents';
 import { fhirToScoringShape, toFhirQuestionnaire } from './transform';
 import { emitAssessmentCompleted } from '../notifications/notifications.controller';
 import { validateQuestionnairePayload } from './service';

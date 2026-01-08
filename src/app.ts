@@ -10,7 +10,7 @@ const app = express();
 
 app.use(
   cors({
-    origin: ['https://winsights-patienthub.sidlabs.net', 'http://localhost:3001'],
+    origin: ['https://winsights-patienthub.sidlabs.net', 'http://localhost:3000'],
     credentials: true,
   })
 );
@@ -22,6 +22,9 @@ app.use(enforceCookieAllowlist);
 app.get('/health', (_req, res) => {
   res.json({ status: 'ok', service: 'winsights-patienthub', timestamp: new Date().toISOString() });
 });
+
+/* Public API (NO auth, NO consent) */
+app.use('/api/news', require('./modules/news/routes/news.routes').default);
 
 // Auth context for API routes (health is public)
 app.use(resolveAuthContext);

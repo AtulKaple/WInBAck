@@ -8,6 +8,7 @@ import analyticsRouter from '../modules/analytics/routes';
 import deidRouter from '../modules/deid/deid.routes';
 import notificationsRouter from '../modules/notifications/notifications.routes';
 import authRouter from '../modules/auth/routes';
+import consentRoutes from "../modules/consents/routes/consent.routes";
 
 const router = Router();
 
@@ -20,5 +21,6 @@ router.use('/system', systemStatusRouter);
 router.use('/analytics', analyticsRouter);
 router.use('/deid', deidRouter);
 router.use('/notifications', notificationsRouter);
+router.use("/consents", consentRoutes);
 
 export default router;

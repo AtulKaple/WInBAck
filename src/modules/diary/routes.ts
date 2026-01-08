@@ -3,7 +3,7 @@ import path from 'path';
 import { z } from 'zod';
 import { requireAuthContext } from '../../auth';
 import { requireRole } from '../../middleware/auth';
-import { requireActiveConsent } from '../consent';
+import { requireActiveConsent } from '../consents';
 import { preventBodyLogging } from '../../security/safeLogger';
 import { secureReadAll, secureWrite, AUDIT_PATH } from '../../security/secureWrite';
 import { csrfGuard } from '../../security/csrfGuard';
