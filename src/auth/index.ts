@@ -2,8 +2,9 @@ import { Request, Response, NextFunction } from 'express';
 import { SocialStubAdapter } from './socialStubAdapter';
 import { AuthAdapter } from './adapter';
 import { AuthContext } from './types';
+import { CognitoAdapter } from './cognitoAdapter';
 
-const adapter: AuthAdapter = new SocialStubAdapter();
+const adapter: AuthAdapter = new CognitoAdapter();
 
 export async function resolveAuthContext(req: Request, res: Response, next: NextFunction) {
   try {
