@@ -3,14 +3,17 @@ import express from 'express';
 import morgan from 'morgan';
 import helmet from 'helmet';
 import routes from './routes';
+import dotenv from 'dotenv';
 import { resolveAuthContext } from './auth';
+import authPublicRouter from "./modules/auth/routes";
 import { enforceCookieAllowlist } from './security/enforceCookieAllowlist';
+dotenv.config();
 
 const app = express();
 
 app.use(
   cors({
-    origin: ['https://winsights-patienthub.sidlabs.net', 'http://localhost:3000'],
+    origin: ['http://localhost:3000', 'http://localhost:3001'],
     credentials: true,
   })
 );
@@ -25,6 +28,9 @@ app.get('/health', (_req, res) => {
 
 /* Public API (NO auth, NO consent) */
 app.use('/api/news', require('./modules/news/routes/news.routes').default);
+
+// ✅ Public routes FIRST
+app.use('/api/auth', authPublicRouter);
 
 // Auth context for API routes (health is public)
 app.use(resolveAuthContext);

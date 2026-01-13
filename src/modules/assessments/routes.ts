@@ -278,9 +278,15 @@ router.get('/:id/results', preventBodyLogging, requireAuthContext, requireRole([
     .filter((r) => r.assessmentId === req.params.id && r.userId === userId)
     .sort((a, b) => new Date(b.submittedAt).getTime() - new Date(a.submittedAt).getTime());
 
+  // if (userResponses.length === 0) {
+  //   return res.status(404).json({ error: 'No results found for this assessment' });
+  // }
+
   if (userResponses.length === 0) {
-    return res.status(404).json({ error: 'No results found for this assessment' });
-  }
+  return res.json({
+    data: []
+  });
+}
 
   if (!latestOnly) {
     return res.json({

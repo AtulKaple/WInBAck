@@ -1,55 +1,47 @@
 import { ConsentService } from "../services/ConsentService";
 import { CONSENT_STATES } from "../constants/consent.constants";
-import { requireConsent } from "../middleware/requireConsent";
+import { requireActiveConsent } from "../middleware/requireConsent";
+import { StorageAdapter } from "../services/StorageAdapter";
 
 describe("Consent Module – Unit Tests", () => {
   const userId = "user-test-1";
   const module = "assessments";
-  const purpose = "care";
 
   beforeEach(() => {
-    // Reset JSON stores
     jest.resetModules();
+
+    // Reset JSON storage
+    StorageAdapter.writeConsents({});
+    StorageAdapter.writeAudit({ records: [] });
   });
 
-  test("No consent → status is NOT_ASKED", () => {
-    const status = ConsentService.getConsentStatus({
-      userId,
-      module,
-      purpose
-    });
+  test("No consent → default state is PENDING", () => {
+    const status = ConsentService.getConsentStatus(userId, module);
 
-    expect(status.state).toBe(CONSENT_STATES.NOT_ASKED);
+    expect(status.state).toBe(CONSENT_STATES.PENDING);
+    expect(status.grantedAt).toBeNull();
   });
 
   test("Grant consent → state becomes ACTIVE", () => {
-    const result = ConsentService.grantConsent({
+    ConsentService.grantConsent({
       userId,
       module,
-      purpose,
-      role: "patient",
       policyVersion: "v1",
       policyHash: "hash123",
       capturedBy: "web"
     });
 
-    expect(result.state).toBe(CONSENT_STATES.ACTIVE);
-
-    const status = ConsentService.getConsentStatus({
-      userId,
-      module,
-      purpose
-    });
+    const status = ConsentService.getConsentStatus(userId, module);
 
     expect(status.state).toBe(CONSENT_STATES.ACTIVE);
+    expect(status.grantedAt).toBeDefined();
+    expect(status.revokedAt).toBeNull();
   });
 
   test("Revoke consent → state becomes REVOKED", () => {
     ConsentService.grantConsent({
       userId,
       module,
-      purpose,
-      role: "patient",
       policyVersion: "v1",
       policyHash: "hash123",
       capturedBy: "web"
@@ -58,67 +50,116 @@ describe("Consent Module – Unit Tests", () => {
     ConsentService.revokeConsent({
       userId,
       module,
-      purpose,
-      reason: "user_revoked"
+      reason: "user_revoked",
+      capturedBy: "web"
     });
 
-    const status = ConsentService.getConsentStatus({
-      userId,
-      module,
-      purpose
-    });
+    const status = ConsentService.getConsentStatus(userId, module);
 
     expect(status.state).toBe(CONSENT_STATES.REVOKED);
+    expect(status.revokedAt).toBeDefined();
   });
 
-  test("requireConsent blocks request when no consent", () => {
-    const req = { user: { id: userId } };
-    const res = {
+  test("requireActiveConsent blocks request when consent is not ACTIVE", async () => {
+    const req: any = {
+      authContext: { userId }
+    };
+
+    const res: any = {
       status: jest.fn().mockReturnThis(),
       json: jest.fn()
     };
+
     const next = jest.fn();
 
-    requireConsent({ module, purpose })(req, res, next);
+    await requireActiveConsent(module)(req, res, next);
 
     expect(res.status).toHaveBeenCalledWith(403);
+    expect(res.json).toHaveBeenCalledWith(
+      expect.objectContaining({
+        code: "CONSENT_REQUIRED",
+        module
+      })
+    );
     expect(next).not.toHaveBeenCalled();
   });
 
-  test("requireConsent allows request when ACTIVE", () => {
+  test("requireActiveConsent allows request when consent is ACTIVE", async () => {
     ConsentService.grantConsent({
       userId,
       module,
-      purpose,
-      role: "patient",
       policyVersion: "v1",
       policyHash: "hash123",
       capturedBy: "web"
     });
 
-    const req = { user: { id: userId } };
-    const res = {
+    const req: any = {
+      authContext: { userId }
+    };
+
+    const res: any = {
       status: jest.fn().mockReturnThis(),
       json: jest.fn()
     };
+
     const next = jest.fn();
 
-    requireConsent({ module, purpose })(req, res, next);
+    await requireActiveConsent(module)(req, res, next);
+
+    expect(req.consentContext).toEqual(
+      expect.objectContaining({
+        module,
+        state: CONSENT_STATES.ACTIVE
+      })
+    );
 
     expect(next).toHaveBeenCalled();
   });
 
-  test("Audit entry is written on consent change", () => {
-    const result = ConsentService.grantConsent({
+  test("Audit entry is written on consent grant", () => {
+    ConsentService.grantConsent({
       userId,
       module,
-      purpose,
-      role: "patient",
       policyVersion: "v1",
       policyHash: "hash123",
       capturedBy: "web"
     });
 
-    expect(result.auditRef).toBeDefined();
+    const audit = StorageAdapter.readAudit();
+
+    expect(audit.records.length).toBe(1);
+    expect(audit.records[0]).toMatchObject({
+      actor: userId,
+      action: "CONSENT_GRANTED",
+      module,
+      newState: CONSENT_STATES.ACTIVE
+    });
+  });
+
+  test("Audit entry is written on consent revoke", () => {
+    ConsentService.grantConsent({
+      userId,
+      module,
+      policyVersion: "v1",
+      policyHash: "hash123",
+      capturedBy: "web"
+    });
+
+    ConsentService.revokeConsent({
+      userId,
+      module,
+      reason: "user_revoked",
+      capturedBy: "web"
+    });
+
+    const audit = StorageAdapter.readAudit();
+
+    expect(audit.records.length).toBe(2);
+    expect(audit.records[1]).toMatchObject({
+      actor: userId,
+      action: "CONSENT_REVOKED",
+      module,
+      newState: CONSENT_STATES.REVOKED
+    });
   });
 });

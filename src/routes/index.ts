@@ -7,12 +7,12 @@ import systemStatusRouter from '../modules/systemStatus/routes';
 import analyticsRouter from '../modules/analytics/routes';
 import deidRouter from '../modules/deid/deid.routes';
 import notificationsRouter from '../modules/notifications/notifications.routes';
-import authRouter from '../modules/auth/routes';
+// import authRouter from '../modules/auth/routes';
 import consentRoutes from "../modules/consents/routes/consent.routes";
 
 const router = Router();
 
-router.use('/auth', authRouter);
+// router.use('/auth', authRouter);
 router.use('/assessments', assessmentsRouter);
 router.use('/consent', consentRouter);
 router.use('/compliance', complianceRouter);

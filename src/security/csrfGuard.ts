@@ -22,6 +22,18 @@ export const csrfGuard = (req: Request, res: Response, next: NextFunction) => {
   const method = (req.method || '').toUpperCase();
   if (!['POST', 'PUT', 'PATCH', 'DELETE'].includes(method)) return next();
 
+  /**
+   * ✅ If request is authenticated via Authorization header (JWT),
+   * CSRF protection is NOT required.
+   */
+  const authHeader = req.headers.authorization;
+  if (authHeader?.startsWith('Bearer ')) {
+    return next();
+  }
+
+  /**
+   * 🔒 Cookie-based auth fallback → enforce CSRF
+   */
   const cookies = parseCookies(req.headers.cookie as string | undefined);
   const name = getCsrfCookieName();
   const cookieToken = cookies[name];
@@ -33,3 +45,4 @@ export const csrfGuard = (req: Request, res: Response, next: NextFunction) => {
 
   return next();
 };
+

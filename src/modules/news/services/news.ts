@@ -26,8 +26,13 @@ export async function fetchPMCSummaries(ids: string[]) {
 
 
 export function mapToNewsItems(summary: any) {
-  return Object.values(summary.result)
-    .filter((item: any) => item.uid)
+  if (!summary?.result || !Array.isArray(summary.result.uids)) {
+    return [];
+  }
+
+  return summary.result.uids
+    .map((uid: string) => summary.result[uid])
+    .filter(Boolean)
     .map((item: any) => ({
       id: item.uid,
       title: item.title,
