@@ -1,5 +1,3 @@
-// Public API of Consent Module
-
 export { ConsentService } from "./services/ConsentService";
 export { requireActiveConsent } from "./middleware/requireConsent";
 

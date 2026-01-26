@@ -1,5 +1,5 @@
 export type AuthSource = 'social-stub' | 'cognito';
-export type Role = 'patient' | 'researcher' | 'admin';
+export type Role = 'patient' | 'researcher' | 'admin' | 'caregiver';
 
 export type AuthContext = {
   userId: string;

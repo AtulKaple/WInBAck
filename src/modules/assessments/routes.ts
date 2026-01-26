@@ -165,7 +165,7 @@ router.post(
   '/:id/submit',
   preventBodyLogging,
   requireAuthContext,
-  requireRole(['patient']),
+  requireRole(['patient','caregiver']),
   csrfGuard,
   requireActiveConsent('assessments'),
   async (req, res) => {
@@ -270,7 +270,7 @@ router.post(
   }
 );
 
-router.get('/:id/results', preventBodyLogging, requireAuthContext, requireRole(['patient']), requireActiveConsent('assessments'), async (req, res) => {
+router.get('/:id/results', preventBodyLogging, requireAuthContext, requireRole(['patient','caregiver']), requireActiveConsent('assessments'), async (req, res) => {
   const userId = req.authContext?.userId;
   const responses = await readResponses();
   const latestOnly = req.query.latestOnly !== 'false';

@@ -7,7 +7,10 @@ import dotenv from 'dotenv';
 import { resolveAuthContext } from './auth';
 import authPublicRouter from "./modules/auth/routes";
 import { enforceCookieAllowlist } from './security/enforceCookieAllowlist';
+import { connectDB } from './db';
 dotenv.config();
+
+connectDB();
 
 const app = express();
 

@@ -91,7 +91,7 @@ async function latestAuditHash(): Promise<string | undefined> {
 router.get(
   '/',
   requireAuthContext,
-  requireRole(['patient', 'admin']),
+  requireRole(['patient', 'admin', 'caregiver']),
   requireActiveConsent('diary'),
   async (req, res) => {
     const role = req.authContext?.role as 'patient' | 'admin';
@@ -165,7 +165,7 @@ router.get('/admin/stats', requireAuthContext, requireRole(['admin']), async (_r
 router.get(
   '/stats',
   requireAuthContext,
-  requireRole(['patient', 'admin']),
+  requireRole(['patient', 'admin', 'caregiver']),
   requireActiveConsent('diary'),
   async (req, res) => {
     const role = req.authContext?.role as 'patient' | 'admin';
@@ -209,7 +209,7 @@ router.get(
 router.get(
   '/:id',
   requireAuthContext,
-  requireRole(['patient', 'admin']),
+  requireRole(['patient', 'admin', 'caregiver']),
   requireActiveConsent('diary'),
   async (req, res) => {
     const role = req.authContext?.role as 'patient' | 'admin';
@@ -237,7 +237,7 @@ router.post(
   '/',
   preventBodyLogging,
   requireAuthContext,
-  requireRole(['patient']),
+  requireRole(['patient', 'caregiver']),
   csrfGuard,
   requireActiveConsent('diary'),
   async (req, res) => {
@@ -282,7 +282,7 @@ router.delete(
   '/:id',
   preventBodyLogging,
   requireAuthContext,
-  requireRole(['patient']),
+  requireRole(['patient', 'caregiver']),
   csrfGuard,
   requireActiveConsent('diary'),
   async (req, res) => {

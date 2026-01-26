@@ -39,7 +39,7 @@ export class CognitoAdapter implements AuthAdapter {
       const payload = await getVerifier().verify(token);
 
       const groups = payload["cognito:groups"] || [];
-      const allowedRoles = ["patient", "researcher", "admin"] as const;
+      const allowedRoles = ["patient", "researcher", "admin", "caregiver"] as const;
       
       const role = groups.find((g) => allowedRoles.includes(g as any));
 

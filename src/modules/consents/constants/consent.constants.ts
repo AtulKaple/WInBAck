@@ -4,7 +4,7 @@ export const CONSENT_STATES = {
   ACTIVE: "ACTIVE",
   REVOKED: "REVOKED",
   EXPIRED: "EXPIRED"
-};
+} as const;
 
 export const MODULES = [
   "assessments",
@@ -12,21 +12,21 @@ export const MODULES = [
   "analytics",
   "ai_insights",
   "secure_share"
-];
+] as const;
 
 export const PURPOSES = [
   "care",
   "personal_tracking",
   "research_aggregate",
   "research_export"
-];
+] as const;
 
 export const ROLES = {
   PATIENT: "patient",
   CAREGIVER: "caregiver",
   RESEARCHER: "researcher",
   ADMIN: "admin"
-};
+} as const;
 
 export const ERROR_CODES = {
   CONSENT_REQUIRED: "CONSENT_REQUIRED",

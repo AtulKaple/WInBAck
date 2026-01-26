@@ -35,7 +35,7 @@ const consentAny = () => {
 router.get(
   '/patient/summary',
   requireAuthContext,
-  requireRole(['patient']),
+  requireRole(['patient', 'caregiver']),
   consentAny(),
   async (req, res) => {
     const userId = req.authContext?.userId as string;
@@ -107,7 +107,7 @@ router.get(
 router.get(
   '/patient/trends',
   requireAuthContext,
-  requireRole(['patient']),
+  requireRole(['patient', 'caregiver']),
   consentAny(),
   async (req, res) => {
     const userId = req.authContext?.userId as string;
