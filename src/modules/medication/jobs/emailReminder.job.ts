@@ -2,16 +2,7 @@ import { getCognitoUserEmail } from "../../../aws/cognitoUser.service";
 import MedicationDose from "../models/MedicationDose";
 import { sendDoseReminder } from "../services/notification.service";
 
-let isJobRunning = false;
-
 export async function runEmailReminderJob() {
-  // 2. If running, skip this cycle
-  if (isJobRunning) {
-    console.log("⚠️ Email job already running. Skipping this cycle.");
-    return;
-  }
-
-  isJobRunning = true; // Lock
   const now = new Date();
 
   console.log("📧 Email Reminder Job START", now.toISOString());
@@ -76,6 +67,6 @@ export async function runEmailReminderJob() {
 
     console.log("🔐 emailSentAt saved");
   }
-isJobRunning = false;
+
   console.log("📧 Email Reminder Job END");
 }
