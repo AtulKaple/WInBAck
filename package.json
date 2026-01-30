@@ -10,6 +10,7 @@
     "seed": "node -r ts-node/register ./scripts/seedSampleData.ts"
   },
   "dependencies": {
+    "@aws-sdk/client-cognito-identity-provider": "^3.978.0",
     "@types/helmet": "^0.0.48",
     "aws-jwt-verify": "^5.1.1",
     "cors": "^2.8.5",

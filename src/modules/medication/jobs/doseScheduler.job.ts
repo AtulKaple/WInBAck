@@ -1,31 +1,3 @@
-// import cron from "node-cron";
-// import Medication from "../models/Medication";
-// import { createDoseIfNotExists } from "../services/dose.service";
-// import { sendMedicationEmail } from "../services/notification.service";
-
-// cron.schedule("* * * * *", async () => {
-//   const now = new Date();
-//   const time = now.toTimeString().slice(0, 5);
-
-//   const meds = await Medication.find({
-//     status: "active",
-//     "frequency.times": time,
-//     "frequency.type": { $ne: "prn" },
-//   });
-
-//   for (const med of meds) {
-//     await createDoseIfNotExists(med._id, med.userId, now);
-
-//     if (med.emailNotificationsEnabled) {
-//       await sendMedicationEmail(
-//         "kapleatul@gmail.com",
-//         med,
-//         { scheduledAt: now }
-//       );
-//     }
-//   }
-// });
-
 
 import Medication from "../models/Medication";
 import MedicationDose from "../models/MedicationDose";
@@ -36,6 +8,7 @@ export async function runDoseScheduler() {
 
   for (const med of meds) {
     if (med.frequency.type === "prn") continue;
+    if (med.endDate && med.endDate < new Date()) continue;
 
     const times = computeNextDoseTimes(med);
 

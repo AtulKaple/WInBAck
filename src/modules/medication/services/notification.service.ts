@@ -1,6 +1,6 @@
 import { transporter } from "../../../mailer";
 
-export async function sendDoseReminder( med, dose) {
+export async function sendDoseReminder( email, med, dose) {
   if (!med.emailNotificationsEnabled) return;
   if (dose.snoozedUntil && dose.snoozedUntil > new Date()) return;
 
@@ -11,7 +11,7 @@ export async function sendDoseReminder( med, dose) {
 
   await transporter.sendMail({
     from: process.env.FROM_EMAIL,
-    to: "kapleatul@gmail.com",
+    to: email,
     subject: `Medication Reminder: ${med.name} at ${time}`,
     html: `
       <div style="font-family: Arial, sans-serif; line-height:1.6">

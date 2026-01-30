@@ -1,4 +1,5 @@
 import app from './app';
+import "./modules/medication/jobs";
 
 const PORT = process.env.PORT || 4000;
 

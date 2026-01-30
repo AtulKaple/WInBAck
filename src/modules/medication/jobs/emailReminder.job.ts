@@ -1,42 +1,48 @@
+import { getCognitoUserEmail } from "../../../aws/cognitoUser.service";
 import MedicationDose from "../models/MedicationDose";
 import { sendDoseReminder } from "../services/notification.service";
 
 export async function runEmailReminderJob() {
   const now = new Date();
-  const windowStart = new Date(now.getTime() - 60 * 1000); // last 1 min
-  const windowEnd = now;
+
+  // Optional: pick doses that are scheduled a minute ago or earlier
+  const windowStart = new Date(now.getTime() - 60_000); // 1 min buffer
 
   const doses = await MedicationDose.find({
     status: "pending",
-    scheduledAt: {
-      $gte: windowStart,
-      $lte: windowEnd,
-    },
-    emailSentAt: { $exists: false },
+    scheduledAt: { $lte: now }, // pick doses due until now
     $or: [
-      { snoozedUntil: { $exists: false } },
-      { snoozedUntil: { $lte: now } },
+      { emailSentAt: null },         // not sent yet
+      { emailSentAt: { $exists: false } }, // or field missing
     ],
   }).populate("medicationId");
 
   for (const dose of doses) {
     const med: any = dose.medicationId;
 
-    if (!med) continue;
-    if (med.status !== "active") continue;
-    if (!med.emailNotificationsEnabled) continue;
+    let email: string | null = null;
+    try {
+      email = await getCognitoUserEmail(dose.userId);
+    } catch (err) {
+      console.error("❌ Cognito email fetch failed", err);
+      continue;
+    }
 
-    // const user = await User.findById(dose.userId);
-    // if (!user?.email) continue;
-    // if (user.emailNotificationsEnabled === false) continue;
-
-    // await sendDoseReminder(user, med, dose);
-    await sendDoseReminder( med, dose);
+    if (!email) {
+      console.log("❌ Email missing — skipping");
+      continue;
+    }
 
 
-    // 🔐 prevent re-sending
+    try {
+      await sendDoseReminder(email, med, dose);
+    } catch (err) {
+      console.error("❌ Email send failed", err);
+      continue;
+    }
+
+    // Mark as sent
     dose.emailSentAt = new Date();
     await dose.save();
   }
 }
-
