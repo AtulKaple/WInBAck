@@ -12,7 +12,7 @@ export async function runEmailReminderJob() {
 
   const doses = await MedicationDose.find({
     status: "pending",
-    scheduledAt: { $lte: now, $gte: windowStart}, // pick doses due until now
+    scheduledAt: { $lte: now }, // pick doses due until now
     $or: [
       { emailSentAt: null },         // not sent yet
       { emailSentAt: { $exists: false } }, // or field missing
