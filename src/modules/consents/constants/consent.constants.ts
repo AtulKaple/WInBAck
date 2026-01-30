@@ -11,7 +11,7 @@ export const MODULES = [
   "diary",
   "analytics",
   "ai_insights",
-  "secure_share"
+  "medications"
 ] as const;
 
 export const PURPOSES = [

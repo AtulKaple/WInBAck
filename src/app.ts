@@ -8,6 +8,7 @@ import { resolveAuthContext } from './auth';
 import authPublicRouter from "./modules/auth/routes";
 import { enforceCookieAllowlist } from './security/enforceCookieAllowlist';
 import { connectDB } from './db';
+import './modules/medication/jobs/index';
 dotenv.config();
 
 connectDB();
