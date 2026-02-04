@@ -1,3 +1,4 @@
+import { logActivity } from "../../activityLogs/utils/activityLogger";
 import { runDoseScheduler } from "../jobs/doseScheduler.job";
 import MedicationDose from "../models/MedicationDose";
 import { markDose as markService } from "../services/dose.service";
@@ -10,6 +11,20 @@ export const markDose = async (req, res) => {
     req.body.reason,
     req.body.takenAt 
   );
+
+  await logActivity({
+    req,
+    actorUserId: req.authContext.userId,
+    action: "UPDATE",
+    resource: "MedicationDose",
+    resourceId: req.params.id.toString(),
+    description: `Dose marked as ${req.body.status}`,
+    changes: {
+      status: req.body.status,
+      reason: req.body.reason,
+    },
+    success: true,
+  });
 
   res.json(dose);
 };
@@ -30,6 +45,18 @@ export const snoozeDose = async (req, res) => {
       await MedicationDose.findByIdAndUpdate(req.params.id, {
         snoozedUntil: null,
       });
+
+      await logActivity({
+        req,
+        actorUserId: req.authContext.userId,
+        action: "UPDATE",
+        resource: "MedicationDose",
+        resourceId: req.params.id,
+        description: "Dose snooze stopped",
+        changes: { snoozedUntil: null },
+        success: true,
+      });
+
       return res.json({ stopped: true });
   }
 
@@ -38,6 +65,17 @@ export const snoozeDose = async (req, res) => {
     { snoozedUntil },
     { new: true },
   );
+
+  await logActivity({
+    req,
+    actorUserId: req.authContext.userId,
+    action: "UPDATE",
+    resource: "MedicationDose",
+    resourceId: req.params.id.toString(),
+    description: "Dose snoozed",
+    changes: { snoozedUntil },
+    success: true,
+  });
 
   res.json(dose);
 };
@@ -112,6 +150,20 @@ export const addDose = async (req, res) => {
       takenAt: status === "taken" ? new Date(takenAt) : null,
       skippedReason: status === "skipped" ? skippedReason : null,
       emailSentAt: null,
+    });
+
+    await logActivity({
+      req,
+      actorUserId: req.authContext.userId,
+      action: "CREATE",
+      resource: "MedicationDose",
+      resourceId: dose._id.toString(),
+      description: "Manual dose added",
+      changes: {
+        scheduledAt: dose.scheduledAt,
+        status: dose.status,
+      },
+      success: true,
     });
 
     res.status(201).json(dose);

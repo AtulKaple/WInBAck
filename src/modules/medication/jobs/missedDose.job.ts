@@ -15,6 +15,7 @@
 //   );
 // });
 
+import { logActivity } from "../../activityLogs/utils/activityLogger";
 import MedicationDose from "../models/MedicationDose";
 
 const GRACE_MINUTES = 60;
@@ -33,5 +34,14 @@ export async function runMissedDoseJob() {
   },
   { status: "missed" }
 );
+
+await logActivity({
+  actorUserId: "SYSTEM",
+  action: "UPDATE",
+  resource: "MedicationDose",
+  description: "Pending doses marked as missed",
+  success: true,
+});
+
 
 }

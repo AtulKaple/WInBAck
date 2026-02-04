@@ -8,6 +8,7 @@ import { resolveAuthContext } from './auth';
 import authPublicRouter from "./modules/auth/routes";
 import { enforceCookieAllowlist } from './security/enforceCookieAllowlist';
 import { connectDB } from './db';
+import errorHandler from './modules/activityLogs/middlewares/error.middleware';
 dotenv.config();
 
 connectDB();
@@ -16,7 +17,7 @@ const app = express();
 
 app.use(
   cors({
-    origin: ['http://localhost:3000', 'https://winsights-patienthub.sidlabs.net'],
+    origin: ['http://localhost:3000', 'http://localhost:3001', 'https://winsights-patienthub.sidlabs.net'],
     credentials: true,
   })
 );
@@ -37,6 +38,9 @@ app.use('/api/auth', authPublicRouter);
 
 // Auth context for API routes (health is public)
 app.use(resolveAuthContext);
+
+app.use(errorHandler); // logs after auth
+
 
 app.use('/api', routes);
 

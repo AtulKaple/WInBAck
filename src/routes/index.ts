@@ -12,6 +12,8 @@ import consentRoutes from "../modules/consents/routes/consent.routes";
 // import newsRouter from "../modules/news/routes/news.routes";
 import medicationsRouter from "../modules/medication/routes/medication.routes";
 import diseaseRoutes from "../modules/medication/routes/disease.routes"
+import activityLogsRouter from '../modules/activityLogs/routes/activityLogs.routes'
+import { logActivity } from "../modules/activityLogs/utils/activityLogger";
 
 const router = Router();
 
@@ -27,6 +29,32 @@ router.use("/notifications", notificationsRouter);
 router.use("/consents", consentRoutes);
 router.use("/medications", medicationsRouter);
 router.use("/diseases", diseaseRoutes);
+router.use("/activity-logs", activityLogsRouter);
 // router.use("/news", newsRouter);
+
+
+router.post('/auth/login-success',async (req, res) => {
+  try {
+    const auth = req.authContext;
+
+    if (!auth?.userId) {
+      return res.status(401).json({ error: "Unauthorized" });
+    }
+
+    await logActivity({
+        req,
+        actorUserId: auth.userId,
+        action: "LOGIN",
+        resource: "User",
+        description: "User Logged In via Cognito",
+        success: true,
+      });
+
+    res.json({ success: true });
+  } catch (err) {
+    console.error("Login success log failed", err);
+    res.status(500).json({ error: "Failed to log login event" });
+  }
+})
 
 export default router;

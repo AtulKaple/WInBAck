@@ -1,4 +1,5 @@
 import { getCognitoUserEmail } from "../../../aws/cognitoUser.service";
+import { logActivity } from "../../activityLogs/utils/activityLogger";
 import MedicationDose from "../models/MedicationDose";
 import { sendDoseReminder } from "../services/notification.service";
 
@@ -40,6 +41,15 @@ export async function runEmailReminderJob() {
       console.error("❌ Email send failed", err);
       continue;
     }
+
+    await logActivity({
+      actorUserId: dose.userId,
+      action: "OTHER",
+      resource: "MedicationDose",
+      resourceId: dose._id.toString(),
+      description: "Dose reminder email sent",
+      success: true,
+    });
 
     // Mark as sent
     dose.emailSentAt = new Date();

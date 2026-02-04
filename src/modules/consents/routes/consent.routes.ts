@@ -2,6 +2,7 @@
 import { Router } from "express";
 import { ConsentService } from "../services/ConsentService";
 import { MODULES } from "../constants/consent.constants";
+import { logActivity } from "../../activityLogs/utils/activityLogger";
 
 const router = Router();
 
@@ -24,6 +25,18 @@ router.post("/grant", async (req, res) => {
     });
 
     granted.push({ module, ...result });
+
+    await logActivity({
+      req,
+      actorUserId: userId,
+      action: "CREATE",
+      resource: "Consent",
+      resourceId: module,
+      description: `Consent granted for ${module}`,
+      targetName: module,
+      changes: { policyVersion, policyHash, capturedBy },
+      success: true,
+    });
   }
 
   res.json({ status: "ok", granted });
@@ -49,6 +62,18 @@ router.post("/revoke", async (req, res) => {
     });
 
     revoked.push({ module, ...result });
+
+    await logActivity({
+      req,
+      actorUserId: userId,
+      action: "DELETE",
+      resource: "Consent",
+      resourceId: module,
+      description: `Consent revoked for ${module}`,
+      targetName: module,
+      changes: { reason, capturedBy },
+      success: true,
+    });
   }
 
   res.json({ status: "ok", revoked });
