@@ -1,5 +1,6 @@
 import { Router } from "express";
-import assessmentsRouter from "../modules/assessments/routes";
+import assessmentsRouter from "../modules/assessment/assessment.routes";
+// import assessmentsRouter from "../modules/assessments/routes";
 import consentRouter from "../modules/consent";
 import complianceRouter from "../modules/compliance/routes";
 import diaryRouter from "../modules/diary";
