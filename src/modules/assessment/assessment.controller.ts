@@ -12,8 +12,9 @@ import {
   toFhirQuestionnaire,
 } from "./assessment.transform";
 import { safeLogger } from "../../security/safeLogger";
-import { AuditEventModel } from "./models/AuditEvent.model";
 import mongoose from "mongoose";
+import { AssessmentAuditModel } from "./models/AssessmentAudit.model";
+import { logActivity } from "../activityLogs/utils/activityLogger";
 
 // export async function create(req: Request, res: Response) {
 //   const actor = req.authContext!;
@@ -179,12 +180,39 @@ export async function create(req: Request, res: Response) {
       publishedAt: new Date(),
     });
 
-    await AuditEventModel.create({
+    await AssessmentAuditModel.create({
       action: "CREATE",
       actor: { userId: actor.userId, role: actor.role },
-      entity: { resourceType: "Questionnaire", resourceId: doc.id },
+      assessment: {
+        logicalId: doc.logicalId,
+        version: doc.version,
+        questionnaireId: doc._id,
+      },
+      metadata: {
+        title: doc.title,
+        totalQuestions: doc.questions.length,
+      },
       outcome: "SUCCESS",
     });
+
+    await logActivity({
+      req,
+      actorUserId: actor.userId,
+      action: "CREATE",
+      resource: "Assessment",
+      resourceId: doc.logicalId,
+      description: `Created assessment "${doc.title}" (v${doc.version})`,
+      targetName: doc.title,
+      changes: {
+        version: doc.version,
+        totalQuestions: doc.questions.length,
+        minScore: doc.minScore,
+        maxScore: doc.maxScore,
+      },
+      success: true,
+    });
+
+
 
     return res.status(201).json({ data: { id: doc.logicalId } });
   } catch (err: any) {
@@ -353,6 +381,40 @@ export async function submit(req: Request, res: Response) {
     responseId: String(draft?._id), // 👈 PASS EXISTING RESPONSE
   });
 
+  await AssessmentAuditModel.create({
+    action: "SUBMIT",
+    actor: { userId, role },
+    assessment: {
+      logicalId: questionnaire.logicalId,
+      version: questionnaire.version,
+      questionnaireId: questionnaire._id,
+    },
+    response: {
+      questionnaireResponseId: result.questionnaireResponseId,
+    },
+    metadata: {
+      score: result.score,
+      hadDraft: Boolean(draft),
+    },
+    outcome: "SUCCESS",
+  });
+
+  await logActivity({
+    req,
+    actorUserId: userId,
+    action: "UPDATE", // submission modifies response state
+    resource: "AssessmentSubmission",
+    resourceId: String(result.questionnaireResponseId),
+    description: `Submitted assessment "${questionnaire.title}" (v${questionnaire.version})`,
+    targetName: questionnaire.title,
+    changes: {
+      score: result.score,
+      hadDraft: Boolean(draft),
+      version: questionnaire.version,
+    },
+    success: true,
+  });
+
   res.status(201).json({
     status: "completed",
     data: {
@@ -448,7 +510,7 @@ export async function publishNewVersion(req: Request, res: Response) {
   }
 
   // 2️⃣ 🧹 Delete in-progress responses of OLD version
-  await QuestionnaireResponseModel.deleteMany({
+  const deletedCount = await QuestionnaireResponseModel.deleteMany({
     questionnaireRef: latest._id, // safest match
     questionnaireVersion: latest.version,
     status: "in-progress",
@@ -469,6 +531,39 @@ export async function publishNewVersion(req: Request, res: Response) {
     maxScore: payload.maxScore,
     publishedAt: new Date(),
   });
+
+  await AssessmentAuditModel.create({
+    action: "PUBLISH_NEW_VERSION",
+    actor: { userId: req.authContext!.userId, role: req.authContext!.role },
+    assessment: {
+      logicalId: doc.logicalId,
+      version: doc.version,
+      questionnaireId: doc._id,
+    },
+    metadata: {
+      previousVersion: latest.version,
+      deletedDrafts: deletedCount.deletedCount,
+    },
+    outcome: "SUCCESS",
+  });
+
+  await logActivity({
+    req,
+    actorUserId: req.authContext!.userId,
+    action: "UPDATE", // version publish is technically update
+    resource: "Assessment",
+    resourceId: doc.logicalId,
+    description: `Published new version ${doc.version} for "${doc.title}(${doc.logicalId})"`,
+    targetName: doc.title,
+    changes: {
+      previousVersion: latest.version,
+      newVersion: doc.version,
+      deletedDrafts: deletedCount.deletedCount,
+    },
+    success: true,
+  });
+
+
 
   return res.status(201).json({
     data: {
